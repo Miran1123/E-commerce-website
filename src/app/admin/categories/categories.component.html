@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1>Categoties</h1>
+  </div>
+  <div class="col-lg-12">
+    <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
+
+      <input type="hidden"  formControlName="id"/>
+      <input type="hidden"  formControlName="image"/>
+      <div class="form-group">
+      <label>Name</label>
+      <input type="text" class="form-control" formControlName="name"/>
+    </div>
+    <div class="form-group">
+      <label>Sr no</label>
+      <input type="number" min="1" class="form-control" formControlName="srno"/>
+    </div>
+    <div class="form-group">
+      <label>Image</label>
+      <input type="file"  class="form-control" accept="image/*" formControlName="image" (change)="imageChanged($event)"/>
+    </div>
+    <div class="form-group">
+      <input  [disabled]="!formdata.valid" type="submit" value="Save"  class="btn btn-success" />
+
+
+    </div>
+  </form>
+    <div class="col-lg-12">
+      <div class="table-scrollable">
+
+    <table class="table table-bordered table-stripped">
+      <tr>
+        <th>Action</th>
+        <th>Sr No</th>
+        <th>Image</th>
+        <th>Name</th>
+      </tr>
+      <tr *ngFor="let category of categories">
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="editcategory(category._id)">Edit</button>
+          <button class="btn btn-danger btn-sm" (click)="deletecategory(category._id)">Delete</button>
+        </td>
+        <td>{{category.srno}} </td>
+        <td><img src="{{baseurl + category.imagepath}}" alt="" style="height: 100px; width: auto;"></td>
+        <td>{{category.name}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+</div>
