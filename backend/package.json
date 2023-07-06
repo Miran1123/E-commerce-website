@@ -10,7 +10,7 @@
   "keywords": [
     "E-Commerce"
   ],
-  "author": "Abhijit Gatade",
+  "author": "Miran Shaikh",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.0",
